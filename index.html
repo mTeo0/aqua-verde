@@ -1,0 +1,845 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="AquaVerde Servicios: limpieza de piscinas, mantenimiento y jardinería profesional.">
+
+    <title>AquaVerde | Piscinería y Jardinería</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --green: #16845b;
+            --green-dark: #096344;
+            --green-light: #e9f6ef;
+            --blue: #123b4a;
+            --text: #24352f;
+            --muted: #6b7c75;
+            --white: #ffffff;
+            --background: #f8fbf9;
+            --border: #e4ece7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: var(--white);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        button,
+        a {
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .container {
+            width: min(1120px, 90%);
+            margin: auto;
+        }
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        nav {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Manrope', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            color: var(--blue);
+            white-space: nowrap;
+        }
+
+        .logo-icon {
+            display: grid;
+            place-items: center;
+            width: 42px;
+            height: 42px;
+            background: var(--green-light);
+            color: var(--green);
+            border-radius: 14px;
+            font-size: 1.4rem;
+        }
+
+        .logo span {
+            color: var(--green);
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            font-size: 0.92rem;
+            font-weight: 600;
+        }
+
+        .nav-links a {
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        .button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 13px 22px;
+            border-radius: 10px;
+            font-size: 0.94rem;
+            font-weight: 700;
+            border: 1px solid transparent;
+            transition: 0.2s ease;
+            cursor: pointer;
+        }
+
+        .button-primary {
+            background: var(--green);
+            color: var(--white);
+        }
+
+        .button-primary:hover {
+            background: var(--green-dark);
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border-color: var(--border);
+            background: var(--white);
+        }
+
+        .button-secondary:hover {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        .hero {
+            padding: 76px 0 88px;
+            background:
+                radial-gradient(circle at 5% 15%, #eaf7ef 0, transparent 35%),
+                var(--background);
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            align-items: center;
+            gap: 58px;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--green-light);
+            color: var(--green-dark);
+            padding: 7px 13px;
+            border-radius: 30px;
+            font-size: 0.82rem;
+            font-weight: 700;
+            margin-bottom: 22px;
+        }
+
+        .eyebrow-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Manrope', sans-serif;
+            line-height: 1.18;
+            letter-spacing: -1px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.15rem);
+            color: var(--blue);
+            margin-bottom: 22px;
+        }
+
+        h1 span {
+            color: var(--green);
+        }
+
+        .hero-description {
+            max-width: 490px;
+            color: var(--muted);
+            font-size: 1.08rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .hero-note {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 28px;
+            font-size: 0.86rem;
+            color: var(--muted);
+        }
+
+        .check {
+            display: grid;
+            place-items: center;
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+            background: var(--green-light);
+            color: var(--green);
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            display: block;
+            width: 100%;
+            height: 460px;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: 0 24px 60px rgba(18, 59, 74, 0.13);
+        }
+
+        .image-badge {
+            position: absolute;
+            left: -22px;
+            bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            padding: 17px 20px;
+            border-radius: 15px;
+            box-shadow: 0 12px 35px rgba(18, 59, 74, 0.12);
+        }
+
+        .badge-icon {
+            display: grid;
+            place-items: center;
+            width: 43px;
+            height: 43px;
+            background: var(--green-light);
+            border-radius: 12px;
+            font-size: 1.35rem;
+            flex-shrink: 0;
+        }
+
+        .image-badge strong {
+            display: block;
+            font-size: 0.93rem;
+        }
+
+        .image-badge small {
+            color: var(--muted);
+            font-size: 0.8rem;
+        }
+
+        .section {
+            padding: 88px 0;
+        }
+
+        .section-heading {
+            max-width: 650px;
+            margin: 0 auto 45px;
+            text-align: center;
+        }
+
+        .section-heading .eyebrow {
+            margin-bottom: 14px;
+        }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            color: var(--blue);
+            margin-bottom: 15px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 23px;
+        }
+
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--white);
+            transition: 0.25s ease;
+            min-width: 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: #b9ddc9;
+            box-shadow: 0 18px 40px rgba(18, 59, 74, 0.07);
+        }
+
+        .service-icon {
+            display: grid;
+            place-items: center;
+            width: 58px;
+            height: 58px;
+            border-radius: 16px;
+            background: var(--green-light);
+            font-size: 1.8rem;
+            margin-bottom: 22px;
+        }
+
+        .service-card h3 {
+            font-size: 1.22rem;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: var(--muted);
+            font-size: 0.94rem;
+            margin-bottom: 16px;
+        }
+
+        .service-price {
+            color: var(--blue) !important;
+            font-size: 1.05rem !important;
+            font-weight: 800;
+            margin-top: auto;
+        }
+
+        .service-link {
+            color: var(--green);
+            font-weight: 700;
+            font-size: 0.92rem;
+            margin-top: 8px;
+        }
+
+        .service-link:hover {
+            color: var(--green-dark);
+        }
+
+        .empty-services {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: var(--muted);
+            padding: 30px;
+            background: var(--background);
+            border-radius: 15px;
+        }
+
+        .about {
+            background: var(--background);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            align-items: center;
+            gap: 65px;
+        }
+
+        .about-image img {
+            display: block;
+            width: 100%;
+            height: 390px;
+            object-fit: cover;
+            border-radius: 22px;
+        }
+
+        .about-content .eyebrow {
+            margin-bottom: 17px;
+        }
+
+        .about-content p {
+            color: var(--muted);
+            margin-bottom: 20px;
+        }
+
+        .benefits {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 28px;
+        }
+
+        .benefit {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .benefit span {
+            color: var(--green);
+            font-size: 1.1rem;
+        }
+
+        .contact {
+            padding: 75px 0;
+        }
+
+        .contact-box {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            padding: 45px;
+            background: var(--blue);
+            color: var(--white);
+            border-radius: 24px;
+        }
+
+        .contact-box h2 {
+            color: var(--white);
+            font-size: clamp(1.8rem, 4vw, 2.5rem);
+        }
+
+        .contact-box p {
+            color: #d0e0df;
+            max-width: 540px;
+        }
+
+        .contact-box .button {
+            background: #a6edc5;
+            color: #124b37;
+            flex-shrink: 0;
+        }
+
+        .contact-box .button:hover {
+            background: var(--white);
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 28px 0;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            color: var(--muted);
+            font-size: 0.87rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a:hover {
+            color: var(--green);
+        }
+
+        @media (max-width: 850px) {
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-cta {
+                display: none;
+            }
+
+            .hero-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 42px;
+            }
+
+            .hero {
+                padding: 55px 0 65px;
+            }
+
+            .hero-image {
+                max-width: 650px;
+            }
+
+            .hero-image img {
+                height: 380px;
+            }
+
+            .image-badge {
+                left: 12px;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .about-image {
+                order: 2;
+            }
+
+            .contact-box {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 560px) {
+            .container {
+                width: 90%;
+            }
+
+            nav {
+                min-height: 70px;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+
+            .logo-icon {
+                width: 38px;
+                height: 38px;
+            }
+
+            .nav-links {
+                gap: 13px;
+                font-size: 0.82rem;
+            }
+
+            .nav-links a:nth-child(2),
+            .nav-links a:nth-child(3) {
+                display: none;
+            }
+
+            .hero {
+                padding-top: 42px;
+            }
+
+            h1 {
+                font-size: 2.65rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .hero-image img {
+                height: 290px;
+                border-radius: 18px;
+            }
+
+            .image-badge {
+                bottom: 12px;
+                padding: 12px;
+            }
+
+            .section {
+                padding: 65px 0;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-card {
+                padding: 25px;
+            }
+
+            .about-image img {
+                height: 290px;
+            }
+
+            .benefits {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                padding: 30px 23px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav class="container">
+            <a href="#inicio" class="logo">
+                <div class="logo-icon">💧</div>
+                Aqua<span>Verde</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+
+            <a href="#contacto" class="button button-primary nav-cta">
+                Solicitar servicio
+            </a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero" id="inicio">
+            <div class="container hero-grid">
+                <div class="hero-content">
+                    <div class="eyebrow">
+                        <span class="eyebrow-dot"></span>
+                        Piscinería y jardinería profesional
+                    </div>
+
+                    <h1>
+                        Tu piscina y jardín,
+                        <span>siempre impecables.</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Cuidamos tus espacios con servicios de limpieza,
+                        mantenimiento de piscinas y jardinería para que
+                        disfrutes de un entorno limpio y natural.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="#servicios" class="button button-primary">
+                            Explorar servicios →
+                        </a>
+
+                        <a href="#contacto" class="button button-secondary">
+                            Contactarnos
+                        </a>
+                    </div>
+
+                    <div class="hero-note">
+                        <span class="check">✓</span>
+                        Soluciones para tu hogar y jardín
+                    </div>
+                </div>
+
+                <div class="hero-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1572331165267-854da2b10ccc?auto=format&fit=crop&w=1100&q=85"
+                        alt="Piscina limpia rodeada de un jardín"
+                    >
+
+                    <div class="image-badge">
+                        <div class="badge-icon">🌿</div>
+                        <div>
+                            <strong>Frescura y bienestar</strong>
+                            <small>Espacios cuidados todo el año</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="servicios">
+            <div class="container">
+                <div class="section-heading">
+                    <div class="eyebrow">Nuestros servicios</div>
+
+                    <h2>Todo lo que tus espacios necesitan</h2>
+
+                    <p>
+                        Desde el agua cristalina de tu piscina hasta el
+                        verde de tu jardín, te ayudamos a mantener cada
+                        rincón en excelentes condiciones.
+                    </p>
+                </div>
+
+                <div class="services-grid">
+                    {% for servicio in servicios %}
+                    <article class="service-card">
+                        <div class="service-icon">
+                            {% if servicio.categoria == 'Piscineria' %}
+                                💧
+                            {% elif servicio.categoria == 'Jardineria' %}
+                                🌿
+                            {% else %}
+                                🛠️
+                            {% endif %}
+                        </div>
+
+                        <h3>{{ servicio.nombre }}</h3>
+
+                        <p>
+                            {{ servicio.descripcion or 'Servicio profesional para tu hogar.' }}
+                        </p>
+
+                        <p class="service-price">
+                            Gs. {{ "{:,.0f}".format(servicio.precio_base).replace(",", ".") }}
+                        </p>
+
+                        <a href="#contacto" class="service-link">
+                            Consultar servicio →
+                        </a>
+                    </article>
+                    {% else %}
+                    <div class="empty-services">
+                        <h3>Próximamente nuevos servicios</h3>
+                        <p>
+                            Estamos preparando nuestro catálogo.
+                            Volvé a visitarnos pronto.
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+
+        <section class="section about" id="nosotros">
+            <div class="container about-grid">
+                <div class="about-image">
+                    <img
+                        src="https://images.unsplash.com/photo-1416879595882-3373a0480b5b?auto=format&fit=crop&w=1000&q=85"
+                        alt="Plantas verdes en un jardín cuidado"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="about-content">
+                    <div class="eyebrow">Sobre AquaVerde</div>
+
+                    <h2>Cuidamos tus espacios para que los disfrutes.</h2>
+
+                    <p>
+                        En AquaVerde reunimos soluciones de piscinería
+                        y jardinería para facilitar el cuidado de tus
+                        espacios. Nuestro objetivo es ofrecer una
+                        atención organizada, práctica y adaptada a
+                        cada necesidad.
+                    </p>
+
+                    <p>
+                        Queremos que solicitar un servicio sea sencillo
+                        y que puedas dedicar más tiempo a disfrutar de
+                        tu hogar.
+                    </p>
+
+                    <div class="benefits">
+                        <div class="benefit">
+                            <span>✓</span>
+                            Atención personalizada
+                        </div>
+
+                        <div class="benefit">
+                            <span>✓</span>
+                            Servicios variados
+                        </div>
+
+                        <div class="benefit">
+                            <span>✓</span>
+                            Solicitudes organizadas
+                        </div>
+
+                        <div class="benefit">
+                            <span>✓</span>
+                            Cuidado de tus espacios
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contacto">
+            <div class="container">
+                <div class="contact-box">
+                    <div>
+                        <h2>Tu próximo espacio favorito empieza aquí.</h2>
+
+                        <p>
+                            Contanos qué necesitás y encontrá el servicio
+                            adecuado para tu piscina o jardín.
+                        </p>
+                    </div>
+
+                    <a href="mailto:contacto@aquaverde.com"
+                       class="button">
+                        Solicitar información →
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container footer-content">
+            <a href="#inicio" class="logo">
+                <div class="logo-icon">💧</div>
+                Aqua<span>Verde</span>
+            </a>
+
+            <p>© 2026 AquaVerde Servicios. Todos los derechos reservados.</p>
+
+            <div class="footer-links">
+                <a href="#servicios">Servicios</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
