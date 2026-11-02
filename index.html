@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="AquaVerde Servicios: limpieza de piscinas, mantenimiento y jardinería profesional.">
-
     <title>AquaVerde | Piscinería y Jardinería</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -48,8 +47,7 @@
             color: inherit;
         }
 
-        button,
-        a {
+        button, a {
             -webkit-tap-highlight-color: transparent;
         }
 
@@ -186,9 +184,7 @@
             background: var(--green);
         }
 
-        h1,
-        h2,
-        h3 {
+        h1, h2, h3 {
             font-family: 'Manrope', sans-serif;
             line-height: 1.18;
             letter-spacing: -1px;
@@ -497,8 +493,7 @@
                 display: none;
             }
 
-            .hero-grid,
-            .about-grid {
+            .hero-grid, .about-grid {
                 grid-template-columns: 1fr;
                 gap: 42px;
             }
@@ -729,7 +724,11 @@
                         </p>
 
                         <p class="service-price">
-                            Gs. {{ "{:,.0f}".format(servicio.precio_base).replace(",", ".") }}
+                            {% if servicio.precio_base > 0 %}
+                                Gs. {{ "{:,.0f}".format(servicio.precio_base).replace(",", ".") }}
+                            {% else %}
+                                Consultar precio
+                            {% endif %}
                         </p>
 
                         <a href="#contacto" class="service-link">
@@ -815,8 +814,7 @@
                         </p>
                     </div>
 
-                    <a href="mailto:contacto@aquaverde.com"
-                       class="button">
+                    <a href="mailto:contacto@aquaverde.com" class="button">
                         Solicitar información →
                     </a>
                 </div>
